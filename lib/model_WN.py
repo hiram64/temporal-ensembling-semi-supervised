@@ -137,77 +137,22 @@ def build_model(num_class):
     net = GaussianNoise(stddev=0.15)(input_img)
 
     net = WN_Conv2D(net, 128, (3, 3), padding='same', kernel_initializer=kernel_init)
-
-    # net = Conv2D(128, (3, 3), activation=None, padding='same', kernel_initializer=kernel_init, use_bias=False)(net)
-    # # net = MeanOnlyBatchNormalization()(net)
-    # net = Bias(128)(net)
-    # net = LeakyReLU(alpha=0.1)(net)
-
     net = WN_Conv2D(net, 128, (3, 3), padding='same', kernel_initializer=kernel_init)
-
-    # net = Conv2D(128, (3, 3), activation=None, padding='same', kernel_initializer=kernel_init, use_bias=False)(net)
-    # # net = MeanOnlyBatchNormalization()(net)
-    # net = Bias(128)(net)
-    # net = LeakyReLU(alpha=0.1)(net)
-
     net = WN_Conv2D(net, 128, (3, 3), padding='same', kernel_initializer=kernel_init)
-
-    # net = Conv2D(128, (3, 3), activation=None, padding='same', kernel_initializer=kernel_init, use_bias=False)(net)
-    # # net = MeanOnlyBatchNormalization()(net)
-    # net = Bias(128)(net)
-    # net = LeakyReLU(alpha=0.1)(net)
-
     net = MaxPooling2D((2, 2), padding='same')(net)
     net = Dropout(rate=0.5)(net)
 
     net = WN_Conv2D(net, 256, (3, 3), padding='same', kernel_initializer=kernel_init)
-
-    # net = Conv2D(256, (3, 3), activation=None, padding='same', kernel_initializer=kernel_init, use_bias=False)(net)
-    # # net = MeanOnlyBatchNormalization()(net)
-    # net = Bias(256)(net)
-    # net = LeakyReLU(alpha=0.1)(net)
-
     net = WN_Conv2D(net, 256, (3, 3), padding='same', kernel_initializer=kernel_init)
-
-    # net = Conv2D(256, (3, 3), activation=None, padding='same', kernel_initializer=kernel_init, use_bias=False)(net)
-    # # net = MeanOnlyBatchNormalization()(net)
-    # net = Bias(256)(net)
-    # net = LeakyReLU(alpha=0.1)(net)
-
     net = WN_Conv2D(net, 256, (3, 3), padding='same', kernel_initializer=kernel_init)
-    # net = Conv2D(256, (3, 3), activation=None, padding='same', kernel_initializer=kernel_init, use_bias=False)(net)
-    # # net = MeanOnlyBatchNormalization()(net)
-    # net = Bias(256)(net)
-    # net = LeakyReLU(alpha=0.1)(net)
-
     net = MaxPooling2D((2, 2), padding='same')(net)
     net = Dropout(rate=0.5)(net)
 
     net = WN_Conv2D(net, 512, (3, 3), padding='valid', kernel_initializer=kernel_init)
-    # net = Conv2D(512, (3, 3), activation=None, padding='valid', kernel_initializer=kernel_init, use_bias=False)(net)
-    # # net = MeanOnlyBatchNormalization()(net)
-    # net = Bias(512)(net)
-    # net = LeakyReLU(alpha=0.1)(net)
-
     net = WN_Conv2D(net, 256, (1, 1), padding='valid', kernel_initializer=kernel_init)
-
-    # net = Conv2D(256, (1, 1), activation=None, padding='valid', kernel_initializer=kernel_init, use_bias=False)(net)
-    # net = MeanOnlyBatchNormalization()(net)
-    # net = Bias(256)(net)
-    # net = LeakyReLU(alpha=0.1)(net)
-
     net = WN_Conv2D(net, 128, (1, 1), padding='valid', kernel_initializer=kernel_init)
-    # net = Conv2D(128, (1, 1), activation=None, padding='valid', kernel_initializer=kernel_init, use_bias=False)(net)
-    # net = MeanOnlyBatchNormalization()(net)
-    # net = Bias(128)(net)
-    # net = LeakyReLU(alpha=0.1)(net)
-
     net = GlobalAveragePooling2D()(net)
     net = WN_Dense(net, units=num_class, kernel_initializer=kernel_init)
-    # net = Dense(units=num_class, activation=None, kernel_initializer=kernel_init, use_bias=False)(net)
-    # # net = MeanOnlyBatchNormalization()(net)
-    # net = Bias(num_class)(net)
-    # net = Activation('softmax')(net)
 
     # concatenate label
     net = concatenate([net, supervised_label, supervised_flag, unsupervised_weight])

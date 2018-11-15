@@ -108,6 +108,7 @@ def main():
     ensemble_prediction = np.zeros((num_train_data, num_class))
     cur_pred = np.zeros((num_train_data, num_class))
 
+    # Training
     for epoch in range(num_epoch):
         print('epoch: ', epoch)
         idx_list = shuffle(idx_list)
