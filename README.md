@@ -1,4 +1,4 @@
-Temporal Ensembling (Keras)
+## Temporal Ensembling (Keras)
 
 This repository provides keras implementation of the paper "TEMPORAL ENSEMBLING FOR SEMI-SUPERVISED LEARNING" by S. Laine et al.
 
@@ -52,5 +52,5 @@ The differences between the paper and this implementation:
  Samuli Laine and Timo Aila : TEMPORAL ENSEMBLING FOR SEMI-SUPERVISED LEARNING, ICLR, 2017.  
  https://arxiv.org/pdf/1610.02242.pdf
 
-* Official implementation in Theano(lasagne) by the authors
+* Official implementation in Theano(lasagne) by the authors  
 https://github.com/smlaine2/tempens
