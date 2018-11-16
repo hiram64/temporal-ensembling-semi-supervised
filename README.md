@@ -2,7 +2,7 @@
 
 This repository provides keras implementation of the paper "TEMPORAL ENSEMBLING FOR SEMI-SUPERVISED LEARNING" by S. Laine et al.
 
-The implementation includes Temporal Ensembling using CIFAR-10 (PI-Model is not included).
+The implementation includes Temporal Ensembling and PI-Model using CIFAR-10. Both methods are proposed in the paper
 As the paper, the semi-supervised training is done by 4000 supervised data(400 per class) and 46,000 unsupervised data.
 10,000 data are left for evaluation.
 
@@ -36,10 +36,14 @@ After data is prepared, run the following script to train and evaluation.
 Please look into the script about other settable parameters or run "python main.py --help". Although the most of this implementation follows the description of the paper, there are some differences. Please see the note below.
 
 ```
-python main.py
+# Temporal Ensembling
+python main_temporal_ensembling.py
+
+# PI-model
+python main_pi_model.py
 ```
 Evaluation is done at intervals of 5 epochs.
-In the test, it achieved about 87.3% accuracy at the end of epoch.
+In the test, Temporal ensembling and PI-model achieved about 87.3% accuracy and about 86.7% accuracy respectively at the end of epoch.
 
 ### Note
 The differences between the paper and this implementation:
